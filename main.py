@@ -166,7 +166,7 @@ async def tmdb_search_first(
         return None
     return results[0]
 
-def build_title_to_idx_map(indices: Any) -> Dict[Str, int]:
+def build_title_to_idx_map(indices: Any) -> Dict[str, int]:
     """
     indices.pkl can be : 
     -dict (title-> index)
