@@ -19,12 +19,12 @@ TMDB_IMG_500 = "https://image.tmdb.org/t/p/w500"
 
 if not TMDB_API_KEY:
     #Don ot crash import - Time in production if you prefer: but for you better fall early:
-    raise RunTimeError("TMDB_API_KEY is not set in environment variables")
+    raise RuntimeError("TMDB_API_KEY is not set in environment variables")
 app = FastAPI(title = "Movie Recommender Api", version  ="1.0")
 
 app.add_middleware(
     CORSMiddleware,
-    alloworigins=["*"],
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -38,7 +38,7 @@ INDICES_PATH = os.path.join(BASE_DIR, "indices.pkl")
 TFIDF_MATRIX_PATH = os.path.join(BASE_DIR, "tfidf_matrix.pkl")
 TFIDF_PATH = os.path.join(BASE_DIR, "tfidf.pkl")
 
-df: Optional[pd.Dataframe] = None
+df: Optional[pd.DataFrame] = None
 indices_obj: Any = None
 tfidf_matrix: Any = None
 tfidf_obj: Any = None
